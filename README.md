@@ -13,18 +13,22 @@ Before running the playbook, make sure you have the following prerequisites set 
 
 1. Generate a vault password file using OpenSSL:
 
-   ```bash
-   openssl rand -base64 32 > vault.pass
-   ```
+```bash
+openssl rand -base64 32 > vault.pass
+```
+
 2. Create a vault file (pass.yml) using Ansible Vault with the generated password file:
-  ```bash
-  ansible-vault create pass.yml --vault-password-file vault.pass
-  ```
+
+```bash
+ansible-vault create pass.yml --vault-password-file vault.pass
+```
+
 3. Store your AWS credentials (access key and secret key) in the created vault file (pass.yml). The file should look like this:
-  ```yaml
-  access_key: YOUR_AWS_ACCESS_KEY_ID
-  secret_key: YOUR_AWS_SECRET_ACCESS_KEY
-  ```
+
+```yaml
+access_key: YOUR_AWS_ACCESS_KEY_ID
+secret_key: YOUR_AWS_SECRET_ACCESS_KEY
+```
 
 ## Role Variables
 
