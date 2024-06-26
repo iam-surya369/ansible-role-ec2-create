@@ -4,8 +4,8 @@ secret_key: "{{ secret_key }}"
 region: us-east-1
 instance_type: t2.micro
 key_pair: ansible-key
-security_group_id: sg-04e07767504147587
-vpc_subnet_id: subnet-034e833a33c2eaf3c
+security_group: default
+availability_zone: us-east-1
 assign_public_ip: true
 env: Testing
 ec2_instances:
