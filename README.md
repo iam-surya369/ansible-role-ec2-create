@@ -39,8 +39,8 @@ The following variables can be customized:
 - `region`: AWS region where EC2 instances will be created.
 - `instance_type`: EC2 instance type (e.g., t2.micro).
 - `key_pair`: Name of the SSH key pair to use for instance access.
-- `security_group_id`: ID of the security group for EC2 instances.
-- `vpc_subnet_id`: ID of the VPC subnet where instances will be launched.
+- `security_group`: ID of the security group for EC2 instances.
+- `availability_zone`: Name of tha availability zone in which the EC2 instances will be created.
 - `assign_public_ip`: Whether to assign a public IP address to instances (true or false).
 - `env`: Environment tag for the instances.
 - `ec2_instances`: List of dictionaries specifying the EC2 instances to create, including image IDs and instance names.
@@ -56,7 +56,7 @@ No dependencies on other roles.
   hosts: localhost
   connection: local
   vars_files:
-    - "<vault_file_location>"
+    - "<your_vault_file_location>"   # This file (pass.yml) provides encrypted variables for the ec2_create role
   roles:
     - ec2_create
 ```
