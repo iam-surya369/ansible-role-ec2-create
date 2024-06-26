@@ -1,0 +1,22 @@
+galaxy_info:
+  author: Surya
+  description: Ansible role to create Ubuntu and Amazon Linux EC2 instances on AWS.
+  company: YourCompany
+  license: MIT
+  min_ansible_version: '2.9'
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - noble
+    - name: Amazon Linux
+      versions:
+        - all
+        
+  galaxy_tags:
+    - aws
+    - ec2
+    - ubuntu
+    - amazon-linux
+    - automation
+dependencies: []

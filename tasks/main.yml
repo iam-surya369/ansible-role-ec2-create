@@ -1,0 +1,33 @@
+---
+- name: Create Ubuntu and Amazon Linux EC2 Instances
+  amazon.aws.ec2_instance:
+    aws_access_key: "{{ access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+    region: "{{ region }}"
+    name: "{{ item.name }}"
+    image_id: "{{ item.image }}"
+    instance_type: "{{ instance_type }}"
+    key_name: "{{ key_pair }}"
+    security_group: "{{ security_group_id }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    network:
+      assign_public_ip: "{{ assign_public_ip }}"
+    tags:
+      Name: "{{ item.name }}"
+      environment: "{{ env }}"
+  register: ec2_creation_results
+  loop: "{{ ec2_instances }}"
+
+- name: Display Instance IDs of Created EC2 Instances
+  ansible.builtin.debug:
+    msg: "Instance ID of {{ item.instances[0].tags.Name }}: {{ item.instances[0].instance_id }}"
+  loop: "{{ ec2_creation_results.results }}"
+  loop_control:
+    label: "{{ item.instances[0].tags.Name }}"
+
+- name: Display Public IPs of Created EC2 Instances
+  ansible.builtin.debug:
+    msg: "Instance ID of {{ item.instances[0].tags.Name }}: {{ item.instances[0].network_interfaces[0].association.public_ip }}"
+  loop: "{{ ec2_creation_results.results }}"
+  loop_control:
+    label: "{{ item.instances[0].tags.Name }}"
