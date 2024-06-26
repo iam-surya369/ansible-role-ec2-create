@@ -5,7 +5,7 @@ region: us-east-1
 instance_type: t2.micro
 key_pair: ansible-key
 security_group: default
-availability_zone: us-east-1
+availability_zone: us-east-1a
 assign_public_ip: true
 env: Testing
 ec2_instances:
