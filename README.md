@@ -52,7 +52,7 @@ No dependencies on other roles.
   hosts: localhost
   connection: local
   vars_files:
-    - "<your_vault_password_file_location>"
+    - "<vault_file_location>"
   roles:
     - ec2_create
 ```
@@ -62,7 +62,7 @@ No dependencies on other roles.
 To run the playbook, use the following command:
 
 ```bash
-ansible-playbook <your_playbook_location> --vault-password-file <your_password_file_location>
+ansible-playbook <your_playbook_location> --vault-password-file <your_vault_password_file_location>
 ```
 
 ## License
